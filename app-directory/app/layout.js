@@ -1,7 +1,17 @@
-export default function RootLayout() {
+export const metadata = {
+  title: "Home",
+}
+
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>Hello App direct</body>
+      <head></head>
+      <body>
+        <header>Header</header>
+
+        {children}
+        <footer>Footer</footer>
+      </body>
     </html>
   )
 }
