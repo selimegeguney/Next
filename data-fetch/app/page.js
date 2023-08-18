@@ -1,8 +1,3 @@
-import { getData } from "./head"
-
-export default async function Home() {
-  const data = await getData()
-
-  console.log(data)
+export default function Home() {
   return <h1>Data Fetching</h1>
 }
