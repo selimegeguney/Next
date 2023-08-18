@@ -6,7 +6,9 @@ export const getData = async () => {
   return res.json()
 }
 
-const Head = () => {
+const Head = async () => {
+  const data = await getData()
+  console.log(data)
   return <div>Head</div>
 }
 
