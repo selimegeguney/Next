@@ -4,7 +4,7 @@ import MoviesSection from "@/components/movies-section"
 
 import Movies from "@/mocks/movies.json"
 import Genres from "@/mocks/genres.json"
-const HomeContainer = ({ selectedCategory }) => {
+const HomeContainer = ({ selectedCategory, popularMovies, topRatedMovies }) => {
   return (
     <div>
       <FeaturedMovie movie={Movies.results[9]} />
@@ -19,13 +19,10 @@ const HomeContainer = ({ selectedCategory }) => {
           movies={selectedCategory.movies}
         />
       )}
-      <MoviesSection
-        title="POPULAR  FILMS"
-        movies={Movies.results.slice(1, 7)}
-      />
+      <MoviesSection title="POPULAR FILMS" movies={popularMovies.slice(0, 6)} />
       <MoviesSection
         title="YOUR FAVOURITES"
-        movies={Movies.results.slice(7, 13)}
+        movies={topRatedMovies.slice(0, 6)}
       />
     </div>
   )
