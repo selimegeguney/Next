@@ -1,13 +1,12 @@
 import { notFound } from "next/navigation"
 
 import MovieContainer from "@/containers/movie"
-import Movies from "@/mocks/movies.json"
+import { getAllMovies } from "@/app/[[...category]]/page"
 import Loading from "@/components/loading"
 
-const MoviePage = ({ params, searchParams }) => {
-  const movieDetail = Movies.results.find(
-    (movie) => movie.id.toString() === params.id
-  )
+const MoviePage = async ({ params, searchParams }) => {
+  const { results: Movies } = await getAllMovies()
+  const movieDetail = Movies.find((movie) => movie.id.toString() === params.id)
   if (!movieDetail) {
     notFound()
   }
